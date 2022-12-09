@@ -1,0 +1,16 @@
+f (flash_light_js == 1) {
+flash_light_js = 0;
+imageview1.setImageResource(R.drawable.ontorch_1);
+android.hardware.camera2.CameraManager cameraManager = (android.hardware.camera2.CameraManager) getSystemService(Context.CAMERA_SERVICE);
+try {
+String cameraId = cameraManager.getCameraIdList()[0]; cameraManager.setTorchMode(cameraId, true); } catch (android.hardware.camera2.CameraAccessException e) { }
+}
+else {
+if (flash_light_js == 0) {
+flash_light_js = 1;
+imageview1.setImageResource(R.drawable.ontorch_3);
+android.hardware.camera2.CameraManager cameraManager = (android.hardware.camera2.CameraManager) getSystemService(Context.CAMERA_SERVICE);
+try {
+String cameraId = cameraManager.getCameraIdList()[0]; cameraManager.setTorchMode(cameraId, false); } catch (android.hardware.camera2.CameraAccessException e) { }
+}
+}
